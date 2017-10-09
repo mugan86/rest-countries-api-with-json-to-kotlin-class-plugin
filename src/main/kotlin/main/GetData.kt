@@ -1,7 +1,7 @@
 package main
 import domain.commands.RequestCurrencyCommand
-import extensions.FileManage
-import extensions.Request
+import utils.FileManage
+import utils.Request
 
 /**********************************************************************************************************************
  * Created by Anartz Mugika (mugan86@gmail.com) on 4/10/17.
