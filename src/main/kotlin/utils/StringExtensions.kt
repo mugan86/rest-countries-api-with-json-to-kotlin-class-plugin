@@ -1,8 +1,9 @@
 package utils
 
-/**
- * Created by anartzmugika on 13/10/17.
- */
+/***********************************************************************************************************************
+ * Created by Anartz Mugika (mugan86@gmail.com) on 13/10/17.
+ * String extensions
+ ***********************************************************************************************************************/
 fun cleanStringResult(value: String) =  value.replace("[", "").replace("]", "")
 
 fun countSelectCharInString (word:String, findChar: Char): Int {
