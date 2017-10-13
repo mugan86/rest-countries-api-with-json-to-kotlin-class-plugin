@@ -4,10 +4,10 @@ import data.ConstantValues
 import java.sql.Connection
 import java.sql.DriverManager
 
-/**
- * Created by anartzmugika on 12/10/17.
- */
-
+/***********************************************************************************************************************
+ * Created by Anartz Mugika (mugan86@gmail.com) on 13/10/17.
+ * Initialize MySQL connection
+ ***********************************************************************************************************************/
 
 class Connection {
     fun connectToDB(): Connection? {
