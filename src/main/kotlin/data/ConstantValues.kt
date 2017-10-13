@@ -7,6 +7,7 @@ package data
 class ConstantValues() {
     companion object {
         val URL_LOCALHOST = "https://restcountries.eu/rest/v2/all"
+        val WIKIPEDIA_URL = "https://en.m.wikipedia.org/wiki/"
 
         //DATABASE Values
         private val DB_NAME = "restcountries"
@@ -16,6 +17,7 @@ class ConstantValues() {
         val PASS = ""
 
         val ALL_COUNTRIES = "SELECT * FROM `rescountries_country`"
+        val ALL_COUNTRIES_ONLY_NAME_CODE = "SELECT cioc, name FROM `rescountries_country`"
 
         val insertValue = "INSERT IGNORE INTO `rescountries_country` (`cioc`, `name`, `topLevelDoimain`, `alpha2Code`, `alpha3Code`, `callingCodes`, `capital`, `altSpellings`, `region`, `subregion`, `population`, `lat`, `lng`, `demonym`, `area`, `gini`, `timezones`, `borders`, `nativeName`, `numericCode`, `flag`) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
@@ -31,6 +33,8 @@ class ConstantValues() {
 
         val insertCurrencies = "INSERT IGNORE INTO `restcountries_currency` (`cioc`, `code`, `name`, `symbol`)" +
                 "VALUES (?, ?, ?, ?)"
+
+        val addWikipediaURL = "UPDATE `rescountries_country` SET `url` = ? WHERE `rescountries_country`.`cioc` = ?"
 
     }
 
