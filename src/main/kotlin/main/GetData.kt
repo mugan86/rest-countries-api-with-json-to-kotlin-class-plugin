@@ -16,9 +16,19 @@ fun main(args: Array<String>) {
     val result = RequestCurrencyCommand().execute()
     println("Total countries is ${result.size} countries.")
     result.forEach { country ->
-        insertCurrencies(country.alpha3Code, currencies = country.currencies)
+        printValues(country)
     }
 
+}
+
+private fun printValues(country: RestCountries) {
+    println("********************************************************")
+    println("Name: 			 ${country.name}")
+    println("Flag: 			 https://restcountries.eu/data/${country.alpha3Code.toLowerCase()}.svg")
+    println("Area: 			 ${country.area} km^2")
+    println("Capital: 		 ${country.capital}")
+    println("Native name: 	 ${country.nativeName}")
+    println("Population: 	 ${country.population}")
 }
 
 private fun insertCurrencies(cioc: String, currencies: List<Currency>) {
