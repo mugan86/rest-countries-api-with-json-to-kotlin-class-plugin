@@ -17,6 +17,12 @@ fun main(args: Array<String>) {
     println("Total countries is ${result.size} countries.")
     result.forEach { country ->
         printValues(country)
+        /*insertAllCountriesInMainTable(country)
+        insertCurrencies(country.cioc, country.currencies)
+        insertTranslations(country.cioc, country.translations)
+        insertRegionalBlocks(country.cioc, country.regionalBlocs)
+        insertLanguages(country.cioc, country.languages)*/
+        //addWikipediaURL()
     }
 
 }
@@ -30,6 +36,7 @@ private fun printValues(country: RestCountries) {
     println("Native name: 	 ${country.nativeName}")
     println("Population: 	 ${country.population}")
 }
+
 
 private fun insertCurrencies(cioc: String, currencies: List<Currency>) {
     currencies.forEach {
@@ -133,4 +140,23 @@ private fun insertAllCountriesInMainTable(country: RestCountries) {
     } catch (e: Exception) {
         println("NOT CORRECT!!!")
     }
+}
+
+private fun addWikipediaURL() {
+    val db = DbHelper();
+    val dataFromDB = db.executeQuery(ConstantValues.ALL_COUNTRIES_ONLY_NAME_CODE)
+    while(dataFromDB.next()) {
+        println(" ${dataFromDB.getString(1)} / ${dataFromDB.getString(2)} / ${createWikipediaURL(dataFromDB.getString(2))}")
+        val list: ArrayList<String> = mutableListOf<String>() as ArrayList<String>
+        list.add(createWikipediaURL(dataFromDB.getString(2)))
+        list.add(dataFromDB.getString(1))
+        db.executeInsertUpdateOperation(ConstantValues.addWikipediaURL, list)
+    }
+    db.close();
+
+    // UPDATE `rescountries_country` SET `url` = 'https://en.m.wikipedia.org/wiki/Aruba' WHERE `rescountries_country`.`cioc` = 'ABW';
+}
+
+private fun createWikipediaURL(name:String): String {
+    return "${ConstantValues.WIKIPEDIA_URL}${name.replace(" ", "_")}"
 }
