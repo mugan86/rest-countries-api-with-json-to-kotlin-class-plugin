@@ -6,9 +6,11 @@ package data
 class ConstantValues() {
     companion object {
         val URL_LOCALHOST = "https://restcountries.eu/rest/v2/all"
+
         //DATABASE Values
         private val DB_NAME = "restcountries"
-        val URL_DB = "jdbc:mysql://localhost:3306/" + DB_NAME
+        private val USE_UNICODE = "?useUnicode=yes&characterEncoding=UTF-8&relaxAutoCommit=true"
+        val URL_DB = "jdbc:mysql://localhost:3306/" + DB_NAME + USE_UNICODE
         val USER = "root"
         val PASS = ""
 
