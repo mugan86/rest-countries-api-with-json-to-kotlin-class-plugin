@@ -2,7 +2,7 @@
 Repository to test "JSON to Kotlin Class" plugin with complete API with much data. The result I liked a lot, for other projects I will use this plugin.
 * The instructions for using the plugin are as follows: https://github.com/wuseal/JsonToKotlinClass
 
-I generate my Kotlin class from JSON with GSON Library option and create inside [DomainClasses.kt](https://github.com/mugan86/rest-countries-api-with-json-to-kotlin-class-plugin/blob/master/src/main/kotlin/domain/models/DomainClasses.kt) file. Take data from RestCountries API to all countries and print:
+I generate my Kotlin class from JSON with GSON Library option and create inside [DomainClasses.kt](https://github.com/mugan86/rest-countries-api-with-json-to-kotlin-class-plugin/blob/master/src/main/kotlin/domain/models/DomainClasses.kt) file. Take data from RestCountries API to all countries and print values with **"printValues(country)"** function inside **"src/main/kotlin/main/GetData.kt"**:
 
 ```     
 Total countries is 250 countries.
